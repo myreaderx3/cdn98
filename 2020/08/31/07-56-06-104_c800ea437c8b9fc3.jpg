@@ -1,0 +1,626 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome to the Simcast News portal.</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Search on topics your interested. Read great personalised news.">
+        <meta name="keywords" content="search,news,automotive,beauty,education,events,fashion,finance,games,health,home,insurance,legal,pets,property,shopping,sports,technology,transport,travel,utilties">
+        <meta name="author" content="Simcast">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/templates/simcast/favicon.png" type="image/x-icon">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" ></script>
+        <link type="text/css" href="/templates/simcast/css/html.css" rel="stylesheet" >
+        <link href="/lib/fontawesome-5.9.0/css/all.min.css" rel="stylesheet" >
+
+        <script type="text/javascript">
+    $(document).ready(function () {
+        var totX = 0;
+        var totY = 0;
+        var startx = 0;
+        var starty = 0;
+        var mess = 0;
+
+            //test for javascript
+            var fra = 0;
+            var ip = 0;
+            var infr = window.self !== window.top;
+            if (infr) {
+                fra = 1;
+            }
+            var pop = (window.opener !== undefined && window.opener !== null && window.opener !== window);
+            if (pop) {
+                ip = 1;
+            }
+            $.ajax({
+                method: "GET",
+                url: "/widgets/ms/js.php?fra=" + fra + "&ip=" + ip
+            });
+            document.addEventListener('touchstart', function (e) {
+            var touchobj = e.changedTouches[0]; // first touch
+            totX = totX + parseInt(touchobj.clientX);
+            totY = totY + parseInt(touchobj.clientY);
+        }, false);
+
+        document.addEventListener('touchend', function (e) {
+            var touchobj = e.changedTouches[0]; // last touch
+            totX = totX + abs(parseInt(touchobj.clientX) - startx);
+            totY = totY + abs(parseInt(touchobj.clientY) - starty);
+        }, false);
+
+        document.onmousemove = function (e) {
+            totX = totX + e.pageX;
+            totY = totY + e.pageY;
+        };
+        setInterval(checkCursor, 200);
+
+        function checkCursor() {
+            if ((totX !== 0) || (totY !== 0)) {
+                if (mess !== 2) {
+                    mess = 2;
+                    $.ajax({
+                        method: "GET",
+                        url: "/widgets/ms/up.php?mess=" + mess
+                    });
+                }
+            }
+        }
+    }
+    );
+</script>
+        <script>
+            $(document).ready(function () {
+                if ($(".columns").text().length === 0) {
+                    $('.columns').hide();
+                }
+            });
+        </script>
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+        <script>
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(function () {
+                OneSignal.init({
+                    appId: "4c7b68c0-29d9-46be-b278-bfc487c22942"
+                });
+            });
+        </script>
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+        <script>
+            window.googletag = window.googletag || {cmd: []};
+            googletag.cmd.push(function () {
+                var mapping1 = googletag.sizeMapping().addSize([768, 0], [[970, 250], [728, 90]]).addSize([0, 0], [320, 50]).build();
+                var mapping2 = googletag.sizeMapping().addSize([768, 0], [728, 90]).addSize([0, 0], [320, 50]).build();
+                googletag.defineSlot('/51855962/simcast/simcast_970x250', [[970, 250], [728, 90]], 'simcast_970x250').defineSizeMapping(mapping1).addService(googletag.pubads());
+                googletag.defineSlot('/51855962/simcast/simcast_728x90', [728, 90], 'simcast_728x90').defineSizeMapping(mapping2).addService(googletag.pubads());
+                googletag.defineSlot('/51855962/simcast/simcast_728x90_2', [728, 90], 'simcast_728x90_2').defineSizeMapping(mapping2).addService(googletag.pubads());
+                googletag.defineSlot('/51855962/simcast/simcast_728x90_3', [728, 90], 'simcast_728x90_3').defineSizeMapping(mapping2).addService(googletag.pubads());
+                googletag.defineSlot('/51855962/simcast/Simcast_300x250', [300, 250], 'Simcast_300x250').addService(googletag.pubads());
+                googletag.defineSlot('/51855962/simcast/simcast_300x600', [300, 600], 'simcast_300x600').addService(googletag.pubads());
+                googletag.defineSlot('/51855962/simcast/simcast_320x50', [320, 50], 'simcast_320x50').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.pubads().setTargeting('sub_id', ['stickeraction.com']);
+                googletag.enableServices();
+            });
+        </script>
+        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+
+    </head>
+    <body id="mainbody">
+        <div id="contentwrapper">
+            <div class="menutop clearfix">
+                <div class='logo-block'><a href='/widgets/banners/rules.php?bid=110&wid=2&tid=59&d=stickeraction.com' target=''><img src='/templates/simcast/images/simcastlogo_35y.png' alt='Simcast Logo'  class='logo-image'></a></div><div class='menu-block'><ul class='dropdown'><li><a href='/news'  title='News'>News</a><ul></ul></li><li><a href='/autos'  title='Automotive'>Automotive</a><ul></ul></li><li><a href='/Money'  title='Money'>Money</a><ul></ul></li><li><a href='/Entertainment'  title='Entertainment'>Entertainment</a><ul></ul></li><li><a href='/Lifestyle'  title='Lifestyle'>Lifestyle</a><ul></ul></li><li><a href='/Health'  title='Health'>Health</a><ul></ul></li><li><a href='/Travel'  title='Travel'>Travel</a><ul></ul></li><li><a href='/Video'  title='Videos'>Videos</a><ul></ul></li><li><a href='/Sports'  title='Sports'>Sports</a><ul></ul></li><li><a href='/About-Us' onclick='return myConfirm("/About-Us");' title='About Us'>About Us</a><ul><li><a href='/about-us/About-Simcast'  title='About Simcast'>About Simcast</a><ul></ul></li><li><a href='/about-us/Contact-Us'  title='Contact Us'>Contact Us</a><ul></ul></li><li><a href='/about-us/Policies'  title='Policies'>Policies</a><ul><li><a href='/about-us/policies/Privacy-Policy'  title='Privacy Policy'>Privacy Policy</a><ul></ul></li><li><a href='/about-us/policies/Terms-of-Use'  title='Terms of Use'>Terms of Use</a><ul></ul></li></ul></li></ul></li></ul></div>        <script>
+            function myConfirm(message) {
+                switch (message.length) {
+                    case 0:
+                        message = "WARNING!\nAre you sure you want to do this?";
+                    case 1:
+                        message = "";
+                        break;
+                }
+                if (confirm(message) === true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+        
+            </div>
+            <div class='powered-block'>Powered by <em><strong>Microsoft News</strong></em>
+</div>            <div class = 'googlesearch-script'><!-- /51855962/simcast/simcast_728x90 -->
+<div id='simcast_728x90'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('simcast_728x90'); });
+  </script>
+</div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<link type="text/css" href="/widgets/modal/modal.css" rel="stylesheet">
+<script>
+    function displayModal(mm) {
+        $('#modalout').load('/widgets/modal/modal.php?mm=' + mm);
+    }
+    function displayComment(mm, k, id) {
+        $('#modalout').load('/widgets/modal/modal.php?mm=' + mm + "&k=" + k + "&id=" + id);
+    }
+    $(document).ready(function () {
+        var mm = 0;
+        if (mm !== 0) {
+            displayModal(mm);
+        }
+    });
+
+</script>
+<div id="modalout"></div>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="articlewrapper">
+                <div class="row">
+                    
+<div class='leftcolumn'>
+        <div class='majorArticle-block'>
+        <a href='/widgets/tk/msc.php?id=0&k=news' target="_BLANK">
+            <img src='https://img3.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGhsVTdab2NFN2VVMm9MTGJrNFhacDN0Z2xuTzlDR1U2aG45NVlMeXJHczhGSW5YSHQxV25EYlEvbkQ2OWt6aWs='  class='majorArticle-image'>
+            <div class='majorArticle-title'>
+                Australia to probe foreign influence at universities            </div>
+        </a>
+    </div>
+        <div class = 'google728x90bottom-script'><!-- /51855962/simcast/simcast_728x90_2 -->
+<div id='simcast_728x90_2'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('simcast_728x90_2'); });
+  </script>
+</div></div>    <div id='trendingnews'>
+        <div class='trendingnewsheading'>Trending News</div>        <div class='textArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=1&k=news' class='textArticle-link' target="_BLANK">
+                <div class='textArticle-imageblock'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFhHM29LbFJCUEpETDR3NXFuU212azlweE5QNzdjUUl2endYMmZFNWtnODJ1dFlFNUZ4aitFVkxabVhKdWx0SW8='  class='textArticle-image'>
+                </div>
+                <div class='textArticle-textcontent'>
+                    <div class='textArticle-title'>
+                        US ccoronavirus cases inch toward 6 million as Birx says don't wait for vaccine to do the right thing...                        <div class='textArticle-abstract'>
+                            As the United States nears 6 million Covid-19 cases, the coordinator of the White House coronavirus response urged Americans not to wait for a vaccine to stop community spread of the virus.                        </div>
+                        <div class='textArticle-provider'>
+                            <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFJyRzlPTlpJbWVZYWthbkxidU8yMlBNVlZXUkxDNDRTMElPN2FMODVvaXc9' style='height:18px;float:left;'>
+                            <div style='font-size:11px;margin:4px 0px 0px 4px;float:left;'>
+                                CNN&nbsp;&nbsp;                            </div>
+                            <a href='javascript:displayComment(78,"news",1)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+                <div class='textArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=2&k=news' class='textArticle-link' target="_BLANK">
+                <div class='textArticle-imageblock'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdHM4b2V1ZE5jZ21Ib1hQcVV4UERiZDhMT21nb2psanNPdlhBcVJ2b2NvdTAxbTB2Y3BsMThQWFQ4OW9nQUdEQWc='  class='textArticle-image'>
+                </div>
+                <div class='textArticle-textcontent'>
+                    <div class='textArticle-title'>
+                        What we know about the Portland protest shooting                        <div class='textArticle-abstract'>
+                            More than a day after a man was shot and killed in downtown Portland Saturday night, as President Donald Trump supporters clashed with protesters against police, few details have emerged about what took place.                        </div>
+                        <div class='textArticle-provider'>
+                            <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFJyRzlPTlpJbWVZYWthbkxidU8yMlBNVlZXUkxDNDRTMElPN2FMODVvaXc9' style='height:18px;float:left;'>
+                            <div style='font-size:11px;margin:4px 0px 0px 4px;float:left;'>
+                                CNN&nbsp;&nbsp;                            </div>
+                            <a href='javascript:displayComment(78,"news",2)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+                <div class='textArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=3&k=news' class='textArticle-link' target="_BLANK">
+                <div class='textArticle-imageblock'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdEpKWVVWSUlYNTFNK3Rxc3RNOUV5Vkp4Nm1sUGhzS01oSlJURHcwekpGQkp0YXorc1paYzBYMHM0MXlBZHNlU0Y='  class='textArticle-image'>
+                </div>
+                <div class='textArticle-textcontent'>
+                    <div class='textArticle-title'>
+                        BIRTHDAY OF THE DAY: Leland Vittert, Fox News correspondent                        <div class='textArticle-abstract'>
+                            Happy birthday!                        </div>
+                        <div class='textArticle-provider'>
+                            <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdEs1Nm85UjlJbmtWdlNHWVZ3dGVlQ2dWMFZzZUw3TDBRbmp0Rm9rUnBobGM9' style='height:18px;float:left;'>
+                            <div style='font-size:11px;margin:4px 0px 0px 4px;float:left;'>
+                                POLITICO&nbsp;&nbsp;                            </div>
+                            <a href='javascript:displayComment(78,"news",3)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+                <div class='textArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=4&k=news' class='textArticle-link' target="_BLANK">
+                <div class='textArticle-imageblock'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdE1qaHd5UkZNRi9kcHR1d3VVQXFEYU9sWkxrSlZUak45M1dxbENiaEg5cWZNTkFlOFJURE5rK3NVYnNQRVA1TVc='  class='textArticle-image'>
+                </div>
+                <div class='textArticle-textcontent'>
+                    <div class='textArticle-title'>
+                        India Deaths Top Mexico; H.K. to Resume Classes: Virus Update                        <div class='textArticle-abstract'>
+                            India saw its Covid-19 fatalities surpass Mexico’s to give it the third-largest death toll globally, as the Asian nation fast becomes the new epicenter of the pandemic.                        </div>
+                        <div class='textArticle-provider'>
+                            <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGF2WGtyZ2JxdGhZTUJJV1hGVG1pSG1DVUhKSzRvYndQZy9mVXFZV25xWDQ9' style='height:18px;float:left;'>
+                            <div style='font-size:11px;margin:4px 0px 0px 4px;float:left;'>
+                                Bloomberg&nbsp;&nbsp;                            </div>
+                            <a href='javascript:displayComment(78,"news",4)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+                <div class='textArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=5&k=news' class='textArticle-link' target="_BLANK">
+                <div class='textArticle-imageblock'>
+                    <img src='https://img2.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGhoYmU1V0hoTU1qUUc5Q1A5amt0OGUvdEpEbkFIK051WWx5YjFLQmhzSTgwaEJnUm1MRzRnNzZ0dVU5Yy9CS08='  class='textArticle-image'>
+                </div>
+                <div class='textArticle-textcontent'>
+                    <div class='textArticle-title'>
+                        Elon Musk shows off a working brain implant                        <div class='textArticle-abstract'>
+                            Elon Musk promised that he'd show a working demo of his latest technology moonshot, a new kind of implantable chip for the brain, on Friday. And he did, but it wasn't with a human subject: Rather, it was with a pig named Gertrude.                        </div>
+                        <div class='textArticle-provider'>
+                            <img src='https://img2.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFJyRzlPTlpJbWVZYWthbkxidU8yMlBNVlZXUkxDNDRTMElPN2FMODVvaXc9' style='height:18px;float:left;'>
+                            <div style='font-size:11px;margin:4px 0px 0px 4px;float:left;'>
+                                CNN&nbsp;&nbsp;                            </div>
+                            <a href='javascript:displayComment(78,"news",5)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+                <div class='textArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=6&k=news' class='textArticle-link' target="_BLANK">
+                <div class='textArticle-imageblock'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGw2ZWh2cTBTcWV0R21OMVE3ekpONzJMS20xK0QreTRvOTJKaUtJM0g0MDRUbkwyd1orUGNEQVVRTXdhZ1Bvd1Y='  class='textArticle-image'>
+                </div>
+                <div class='textArticle-textcontent'>
+                    <div class='textArticle-title'>
+                        Trading Houses Help Boost Japan Stocks as Buffett Reveals Stakes                        <div class='textArticle-abstract'>
+                            Japanese stocks rose, boosted by trading houses after the revelation of stakes held by Warren Buffett’s Berkshire Hathaway Inc.                        </div>
+                        <div class='textArticle-provider'>
+                            <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGF2WGtyZ2JxdGhZTUJJV1hGVG1pSG1DVUhKSzRvYndQZy9mVXFZV25xWDQ9' style='height:18px;float:left;'>
+                            <div style='font-size:11px;margin:4px 0px 0px 4px;float:left;'>
+                                Bloomberg&nbsp;&nbsp;                            </div>
+                            <a href='javascript:displayComment(78,"news",6)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+                
+    </div>
+</div>
+<div class='middlecolumn'>
+    <div style="margin-bottom:10px;">
+        <script src='/widgets/login/login.js'></script>    <div class='login-block' >
+        <div class='login-heading'>
+            <button id='signinbutton' class='login-button'>Sign-in</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button id='signupbutton' class='login-button'>Sign-up</button></div>
+        <div id='signin'>
+            <form action=/widgets/login/login.php method="POST">
+                <div class='login-fieldnames'>USERNAME</div>
+                <input type="text" id="email" name="email" value="Email Address" class='login-input' 
+                       onblur="if (this.value == '') {
+                                       this.value = 'Email Address';
+                                       this.style.color = '#ddd';
+                                   }"
+                       onfocus="if (this.value == 'Email Address') {
+                                       this.value = '';
+                                       this.style.color = '#FFF';
+                                   }"><br>
+                <div class='login-fieldnames'>PASSWORD</div>
+                <input type="password" id="password" name="password" value="Password"  class='login-input' 
+                       onblur="if (this.value == '') {
+                                       this.value = 'Password';
+                                       this.style.color = '#ddd';
+                                   }"
+                       onfocus="if (this.value == 'Password') {
+                                       this.value = '';
+                                       this.style.color = '#FFF';
+                                   }">
+                <input type="checkbox" name="remember" value="" checked>&nbsp;<span  class='login-remember'>Remember me</span><br>
+                <input type="hidden" name="link" value='/'>
+                <input type="submit" name="sub" value="Sign-in" class='login-submit'>
+            </form>
+            <div class='login-forgot'><a href='javascript:displayModal(1)' class='login-forgotlink'>Forgot password</a></div>
+        </div>
+        <div id='signup'>
+            <form action=/widgets/login/signup.php method="POST" id='signupform'>
+                <div class='login-fieldnames'>NAME</div>
+                <input type="text" id="name" name="name" value="" class='login-input'><br>
+                <div class='login-fieldnames'>EMAIL</div>
+                <input type="text" id="email" name="email" value="" class='login-input'><br>
+                <div class='login-fieldnames'>PASSWORD</div>
+                <input type="password" id="password" name="password" value=""  class='login-input'>
+                <input type="checkbox" id="terms" name="terms" value="" checked>&nbsp;<span class='login-terms'>
+                    Agree to the <a href='/about-us/policies/Terms-of-Use' target='_BLANK' class='login-terms'>Terms of Use</a></span><br>
+                <input type="hidden" name="path" value='/'>
+                <input type="hidden" name="recaptcha" value='0'>
+                                <input type="submit" name="signup" value="Sign-up"  class='login-submit'>
+            </form>
+        </div>
+    </div>
+        </div>
+    <div class='breakingnews'>
+        Breaking News
+    </div>
+            <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=7&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img2.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdEJZSGJCUnlabUtiekt1NzcvZ3d1U2ZxUFR0cUdJZWwrWmMwZUw2dlVUMFRuMkJYOUN2aDFIcjFZUnB4ZEV3Qzc='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=7&k=news' class='minorArticle-text' target="_BLANK">
+                    El Al 971 to Abu Dhabi: first Israel-UAE 'commercial flight'                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=7&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img2.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFpTWTJ2KzQwVng3TVRDdGZ1d0cxbXZaVXkxTFZXY2thM2YzMzY1SlE3WlE9' style='height:18px;float:left;'>&nbsp;
+                    AFP&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",7)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=8&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img3.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFdpdVdpRmtTUy9oWXBtNFhGQnA5c1dXZVpieXo0T3RDT0tuYUcycWhqdkxzcDFoMXVVODJkWGZoQnJHTFMrOGw='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=8&k=news' class='minorArticle-text' target="_BLANK">
+                    India and Chinese Troops Clash on Disputed Himalayan Border                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=8&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img3.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGF2WGtyZ2JxdGhZTUJJV1hGVG1pSG1DVUhKSzRvYndQZy9mVXFZV25xWDQ9' style='height:18px;float:left;'>&nbsp;
+                    Bloomberg&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",8)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=9&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img2.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdHZRZHVFUTViamEyWnZVSkhvS2RtdEw2bHl1ZkptTEhBdEIyVXU2WUdmWjJDUSt0SlVCck1aeTVXcjVYc0xyNHg='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=9&k=news' class='minorArticle-text' target="_BLANK">
+                    Why Adele was wearing Bantu knots, a Jamaican bikini top and other carnival wear                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=9&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img2.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFJyRzlPTlpJbWVZYWthbkxidU8yMlBNVlZXUkxDNDRTMElPN2FMODVvaXc9' style='height:18px;float:left;'>&nbsp;
+                    CNN&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",9)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=10&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img3.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdE13VHJJOWUvMHdhQU9kVUN5bXFPU0ZUcUorb0piMXc0UFpGU2cxZi91djEvdEExQWlvbzdRaW94UkZaaWxnRHE='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=10&k=news' class='minorArticle-text' target="_BLANK">
+                    Police clash with BLM protesters outside the White House                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=10&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img3.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdHp1SGlFd01kZ1ZyT0I4RklNUEVjV3NzNlVIN1MzcTJzeFRsSXU5YzE5eTQ9' style='height:18px;float:left;'>&nbsp;
+                    Daily Mail&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",10)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=11&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdEpoWFFLWm5BRXpTZjM0cVA2aCtnN25nMEJ1S1BWU2xTWEtZRE5RZDFieXdrcFMxc0dIL3l5RWRYTTVGbFE2aVc='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=11&k=news' class='minorArticle-text' target="_BLANK">
+                    India accuses China of 'provocative' military movements                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=11&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdDZlM1VtZk13elN1Z2lxcW5tUVpNc0EvdlJ0OCt3VWZSMUZrbzBFUWxYZnc9' style='height:18px;float:left;'>&nbsp;
+                    Associated Press&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",11)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=12&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFhmZjZHcGJyZjcva0VnU2taNFJ2Ykwxc3diRG85L0d4ekwwNjV5a2lyUWNGc3haMGQwZ1Y0djFHSEdVeFhEZUg='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=12&k=news' class='minorArticle-text' target="_BLANK">
+                    Montenegro Opposition Declares Vote Win in East-West Tug of War                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=12&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGF2WGtyZ2JxdGhZTUJJV1hGVG1pSG1DVUhKSzRvYndQZy9mVXFZV25xWDQ9' style='height:18px;float:left;'>&nbsp;
+                    Bloomberg&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",12)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=13&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img2.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGlnajIzMGNvM01wTEVlbTdGay96RWRiM1NyUnAzL2EvZ0ZZajl0eDVTVHM0R2VuYjViL0Ixd0w5ZUFGOGN2WHU='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=13&k=news' class='minorArticle-text' target="_BLANK">
+                    Campus cases, nurse march, inn apology: News from around our 50 states                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=13&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img2.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFhHZ2hRRkxQRVFCcFkyaXlJVEZka1NycUFFUFN2TkRlYVJ6UUh1NEgyVk09' style='height:18px;float:left;'>&nbsp;
+                    USA TODAY&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",13)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=14&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdDZrUGhYVFhiSG81cHhpT2tldTd5NFV3NmM2SXBBdkd6Mm5UajFRYjNxSDRNNVpGeGZDbjI0YkVpdytEUXlSUGM='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=14&k=news' class='minorArticle-text' target="_BLANK">
+                    Taiwan kite festival: A child was caught in a kite and swept high into the air                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=14&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFJyRzlPTlpJbWVZYWthbkxidU8yMlBNVlZXUkxDNDRTMElPN2FMODVvaXc9' style='height:18px;float:left;'>&nbsp;
+                    CNN&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",14)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=15&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img3.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGw0NlUwQ0ZMQXJBbmNXWGZLVHk2QWpIVWxneFlSNTVjamdhcHViQ2sybDVWWk1iTStZN0YzZk95RzlIcVBVMzc='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=15&k=news' class='minorArticle-text' target="_BLANK">
+                    The Latest: Indian virus surge continues with 78,000 cases                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=15&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img3.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdDZlM1VtZk13elN1Z2lxcW5tUVpNc0EvdlJ0OCt3VWZSMUZrbzBFUWxYZnc9' style='height:18px;float:left;'>&nbsp;
+                    Associated Press&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",15)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=16&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img4.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGhLVHdsVS9aMzdRVlMzT2J1WFZOQTd1RS8wbDJ5UUYzSVhHc1VxTXRyZ2dJTlJnQXFLQStOL3Rkc3o5YXhET1k='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=16&k=news' class='minorArticle-text' target="_BLANK">
+                    Thailand delays $724m China submarine deal after public anger                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=16&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img4.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdFpTWTJ2KzQwVng3TVRDdGZ1d0cxbXZaVXkxTFZXY2thM2YzMzY1SlE3WlE9' style='height:18px;float:left;'>&nbsp;
+                    AFP&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",16)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+                <div class='minorArticle-block clearfix'>
+            <a href='/widgets/tk/msc.php?id=17&k=news' class='minorArticle-imagelink' target="_BLANK">
+                <div class='minorimage-block'>
+                    <img src='https://img3.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdDFuRE9tMzJuK3FIaXphM0Z5bEt2Zkc1VU9wQ1pQQTRubVZvWG45MFhRT0FndkZ0SENYMks0ZXFSRXBNbkZocWE='  class='minorArticle-image'>
+                </div>
+            </a>
+            <div class='minorArticle-title'>
+                <a href='/widgets/tk/msc.php?id=17&k=news' class='minorArticle-text' target="_BLANK">
+                    In China's Xinjiang, forced medication accompanies lockdown                </a>
+            </div>
+            <div class='provider'>
+                <a href='/widgets/tk/msc.php?id=17&k=news' class='minorArticle-newsprovider' target="_BLANK">
+                    <img src='https://img3.smartsearch.me/?pro_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdDZlM1VtZk13elN1Z2lxcW5tUVpNc0EvdlJ0OCt3VWZSMUZrbzBFUWxYZnc9' style='height:18px;float:left;'>&nbsp;
+                    Associated Press&nbsp;&nbsp;                </a>
+                <a href='javascript:displayComment(78,"news",17)' id='manual-ajax' class='commentsymbol'><i class='fas fa-comment-medical' style='font-size:16px;' title='Add a comment'></i></a>            </div>
+
+        </a>
+        </div>
+        </div>
+<div class='rightcolumn'>
+    <div id="sidebar">
+                        <div id="categories">
+            <div id='category-bar'>Categories</div>
+            <div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=700&acid=425&advid=35&warid=61' class = 'category-textlink' >News</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=698&acid=423&advid=35&warid=61' class = 'category-textlink' >Automotive</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=699&acid=424&advid=35&warid=61' class = 'category-textlink' >Entertainment</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=701&acid=426&advid=35&warid=61' class = 'category-textlink' >Money</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=702&acid=427&advid=35&warid=61' class = 'category-textlink' >Lifestyle</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=703&acid=428&advid=35&warid=61' class = 'category-textlink' >Health</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=704&acid=429&advid=35&warid=61' class = 'category-textlink' >Travel</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=705&acid=430&advid=35&warid=61' class = 'category-textlink' >Videos</a></div><div class = 'category-text'><a href = '/widgets/tk/r2.php?aiid=706&acid=431&advid=35&warid=61' class = 'category-textlink' >Sports</a></div>        </div>
+        <div class = 'Google300x250-script'><!-- /51855962/simcast/Simcast_300x250 -->
+<div id='Simcast_300x250'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('Simcast_300x250'); });
+  </script>
+</div></div>        <div style='text-align:center;'>
+                    <div class='imageArticle-block'>
+            <a href='/widgets/tk/msc.php?id=18&k=news' target="_BLANK">
+                <img src='https://img2.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGpvRmVEQm1vUVVwa25XUStCeTh4SXlteUdwa20rTVhIVWV6N3d0aDdKZnZObG5wK045amlDT29neG5DS2N2THM='  class='imageArticle-image'>
+                <div class='imageArticle-title'>The Justice Department secretly curtailed the investigation...</div>
+            </a>
+        </div>
+                <div class='imageArticle-block'>
+            <a href='/widgets/tk/msc.php?id=19&k=news' target="_BLANK">
+                <img src='https://img2.smartsearch.me/?main_img=Y2NNcjdHZ3BiRXlUb0p1TGlwWnZUQ3FyTUV3cCtKVzJtS3lIOCtnTDV1TkVJSzIzWHNCRVNyU25paEdlcVFxdGVGNkNuV0I3QWpxUzc1MWdWdy84YlZxajJMamJwdmRPWURuZGlpRzRBaWFyNEdYcmg3enFINDJiK3g5eFlyR1A='  class='imageArticle-image'>
+                <div class='imageArticle-title'>St. Louis police officer dies after being shot while...</div>
+            </a>
+        </div>
+                            </div>
+    </div>
+</div>
+<div class='farrightcolumn'>
+    <div class = 'googlerighttall-script'><!-- /51855962/simcast/simcast_300x600 -->
+<div id='simcast_300x600'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('simcast_300x600'); });
+  </script>
+</div></div></div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class='article-block'><table border="0" cellpadding="1" style="width:50%">
+	<tbody>
+		<tr>
+			<td style="width:33%"><a class="footerlink" href="/news">News</a><br />
+			<a class="footerlink" href="/autos">Automotive</a><br />
+			<a class="footerlink" href="/money">Money</a><br />
+			<a class="footerlink" href="/entertainment">Entertainment</a><br />
+			<a class="footerlink" href="/lifestyle">Lifestyle</a></td>
+			<td style="vertical-align:top; width:33%"><a class="footerlink" href="/health">Health</a><br />
+			<a class="footerlink" href="/travel">Travel</a><br />
+			<a class="footerlink" href="/video">Videos</a><br />
+			<a class="footerlink" href="/sports">Sports</a><br />
+			<a class="footerlink" href="/lifestyle">Lifestyle</a></td>
+			<td style="vertical-align:top; width:34%"><a class="footerlink" href="/about-us/About-Simcast">About Us</a><br />
+			<a class="footerlink" href="/about-us/Contact-Us">Contact Us</a><br />
+			<a class="footerlink" href="/about-us/policies/Privacy-Policy">Privacy Policy</a><br />
+			<a class="footerlink" href="/about-us/policies/Terms-of-Use">Terms of Use</a></td>
+		</tr>
+	</tbody>
+</table>
+</div>            </div>
+            <div class = 'advertcode-script'><div id="gpt-passback">
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+    googletag.defineSlot('/51855962/test/Traffic_1x1', [1, 1], 'gpt-passback').addService(googletag.pubads());
+    googletag.enableServices();
+    googletag.display('gpt-passback');
+    });
+  </script>
+</div>
+</div>        </div>
+        <div id="gpt-passback">
+            <script>
+            window.googletag = window.googletag || {cmd: []};
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/51855962/test/Traffic_1x1', [1, 1], 'gpt-passback').addService(googletag.pubads());
+                googletag.enableServices();
+                googletag.display('gpt-passback');
+            });
+            </script>
+        </div>
+    </body>
+</html>
